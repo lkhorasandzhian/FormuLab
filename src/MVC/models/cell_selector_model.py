@@ -18,7 +18,7 @@ class CellSelectorModel:
         latex_exporter = LatexExporter()
         try:
             tex_content, _ = latex_exporter.from_notebook_node(temp_notebook)
-            #tex_content = CellSelectorModel.__validate_tex(tex_content)
+            tex_content = CellSelectorModel.__validate_tex(tex_content)
             return tex_content
         except Exception as e:
             raise Exception(f"Ошибка экспорта в LaTeX: {e}")
