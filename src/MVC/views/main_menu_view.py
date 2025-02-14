@@ -1,18 +1,14 @@
 import tkinter as tk
 
 
-class MainMenuView(tk.Toplevel):
+class MainMenuView(tk.Frame):
     def __init__(self, controller):
-        super().__init__()
+        super().__init__(controller.app.root)
         self.controller = controller
         self.show_screen()
 
     def show_screen(self):
-        self.title("FormuLab")
-
-        width = self.winfo_screenwidth()
-        height = self.winfo_screenheight()
-        self.geometry("%dx%d" % (width, height))
+        self.controller.app.root.title("FormuLab")
 
         tk.Label(self, text="Добро пожаловать в FormuLab!", font=("Arial", 14)).pack(pady=20)
         tk.Button(self, text="Загрузить ipynb-файл", command=self.controller.load_file).pack(pady=10)

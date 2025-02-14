@@ -1,19 +1,15 @@
 import tkinter as tk
 
 
-class CellSelectorView(tk.Toplevel):
+class CellSelectorView(tk.Frame):
     def __init__(self, controller, cells):
-        super().__init__()
+        super().__init__(controller.app.root)
         self.controller = controller
         self.cell_vars = []
         self.show_screen(cells)
 
     def show_screen(self, cells):
-        self.title("Выбор ячеек")
-
-        width = self.winfo_screenwidth()
-        height = self.winfo_screenheight()
-        self.geometry("%dx%d" % (width, height))
+        self.controller.app.root.title("Выбор ячеек")
 
         tk.Label(self, text="Выберите ячейки для конвертации", font=("Arial", 14)).pack(pady=10)
 
