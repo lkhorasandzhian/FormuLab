@@ -1,5 +1,6 @@
 from src.MVC.controllers.main_menu_controller import MainMenuController
 from src.MVC.controllers.cell_selector_controller import CellSelectorController
+from src.MVC.controllers.file_finalization_controller import FileFinalizationController
 
 
 class FormuLabApplication:
@@ -28,6 +29,16 @@ class FormuLabApplication:
         file_path = self.current_controller.model.file_path
         notebook_data = self.current_controller.model.notebook_data
         self.current_controller = CellSelectorController(self, file_path, notebook_data)
+        self.current_controller.view.pack()
+
+    def show_file_refinement(self):
+        # Переход к экрану доработки файла tex.
+        if isinstance(self.current_controller, CellSelectorController):
+            self.current_controller.view.pack_forget()
+
+        # Создаем контроллер для доработки полученного файла tex.
+        tex_content = self.current_controller.model.tex_content
+        self.current_controller = FileFinalizationController(self, tex_content)
         self.current_controller.view.pack()
 
     def launch(self):

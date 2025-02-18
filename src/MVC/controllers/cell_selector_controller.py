@@ -1,5 +1,4 @@
-import os
-from tkinter import messagebox, filedialog
+from tkinter import messagebox
 
 from src.MVC.models.cell_selector_model import CellSelectorModel
 from src.MVC.views.cell_selector_view import CellSelectorView
@@ -18,16 +17,8 @@ class CellSelectorController:
             return
 
         try:
-            tex_content = self.model.convert_to_tex(selected_indices)
-            save_path = filedialog.asksaveasfilename(
-                defaultextension=".tex",
-                filetypes=[("LaTeX Files", "*.tex")],
-                initialfile=os.path.splitext(os.path.basename(self.model.file_path))[0] + ".tex"
-            )
-            if save_path:
-                with open(save_path, 'w', encoding='utf-8') as f:
-                    f.write(tex_content)
-                messagebox.showinfo("Успех", f"Файл сохранён: {save_path}")
+            self.model.convert_to_tex(selected_indices)
+            self.app.show_file_refinement()
         except Exception as e:
             messagebox.showerror("Ошибка", str(e))
 

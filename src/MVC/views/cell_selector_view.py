@@ -9,7 +9,7 @@ class CellSelectorView(tk.Frame):
         self.show_screen(cells)
 
     def show_screen(self, cells):
-        self.controller.app.root.title("Выбор ячеек")
+        self.controller.app.root.title("FormuLab")
 
         tk.Label(self, text="Выберите ячейки для конвертации", font=("Arial", 14)).pack(pady=10)
 
