@@ -3,8 +3,7 @@ from nbconvert import LatexExporter
 
 
 class CellSelectorModel:
-    def __init__(self, file_path, notebook_data):
-        self.file_path = file_path
+    def __init__(self, notebook_data):
         self.notebook_data = notebook_data
         self.tex_content = None
 

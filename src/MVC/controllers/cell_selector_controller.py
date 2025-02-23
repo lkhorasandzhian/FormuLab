@@ -5,9 +5,9 @@ from src.MVC.views.cell_selector_view import CellSelectorView
 
 
 class CellSelectorController:
-    def __init__(self, app, file_path, notebook_data):
+    def __init__(self, app, notebook_data):
         self.app = app
-        self.model = CellSelectorModel(file_path, notebook_data)
+        self.model = CellSelectorModel(notebook_data)
         self.view = CellSelectorView(self, self.model.get_cells())
 
     def convert(self):
