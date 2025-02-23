@@ -18,7 +18,7 @@ class FormuLabApplication:
 
     def show_main_menu(self):
         # Переход к главному меню.
-        if isinstance(self.current_controller, CellSelectorController):
+        if isinstance(self.current_controller, (CellSelectorController, FileFinalizationController)):
             self.current_controller.view.pack_forget()
         self.current_controller = MainMenuController(self)
         self.current_controller.view.pack()
