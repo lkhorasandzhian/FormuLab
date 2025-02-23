@@ -18,7 +18,7 @@ class CellSelectorController:
 
         try:
             self.model.convert_to_tex(selected_indices)
-            self.app.show_file_refinement()
+            self.app.show_file_finalization()
         except Exception as e:
             messagebox.showerror("Ошибка", str(e))
 

@@ -31,7 +31,7 @@ class FormuLabApplication:
         self.current_controller = CellSelectorController(self, file_path, notebook_data)
         self.current_controller.view.pack()
 
-    def show_file_refinement(self):
+    def show_file_finalization(self):
         # Переход к экрану доработки файла tex.
         if isinstance(self.current_controller, CellSelectorController):
             self.current_controller.view.pack_forget()
