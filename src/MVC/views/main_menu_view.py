@@ -12,4 +12,5 @@ class MainMenuView(tk.Frame):
 
         tk.Label(self, text="Добро пожаловать в FormuLab!", font=("Arial", 14)).pack(pady=20)
         tk.Button(self, text="Загрузить ipynb-файл", command=self.controller.load_file).pack(pady=10)
+        tk.Button(self, text="Загрузить папку, содержащую ipynb-файлы", command=self.controller.load_folder).pack(pady=10)
         tk.Button(self, text="Выход", command=self.quit).pack(pady=10)
