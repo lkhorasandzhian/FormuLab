@@ -1,5 +1,6 @@
 import nbformat
 from nbconvert import LatexExporter
+from re import sub
 
 
 class CellSelectorModel:
@@ -29,6 +30,7 @@ class CellSelectorModel:
         tex_lines = CellSelectorModel.__add_russian_letters(tex_lines)
         tex_lines = CellSelectorModel.__comment_title(tex_lines)
         tex_lines = CellSelectorModel.__add_star_to_sections(tex_lines)
+        tex_lines = CellSelectorModel.__remove_labels(tex_lines)
         return "\n".join(tex_lines)
 
     @staticmethod
@@ -70,4 +72,13 @@ class CellSelectorModel:
         if tex_lines and tex_lines[0].startswith("\\documentclass"):
             tex_lines.insert(1, header_insert)
 
+        return tex_lines
+
+    @staticmethod
+    def __remove_labels(tex_lines):
+        # Используем регулярное выражение для удаления \label{...}.
+        tex_lines = [
+            sub(r'\\label\{.*?}', '', line)  # Заменяем \label{...} на пустую строку.
+            for line in tex_lines
+        ]
         return tex_lines
