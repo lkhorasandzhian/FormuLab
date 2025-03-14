@@ -1,6 +1,6 @@
 import nbformat
 from nbconvert import LatexExporter
-from re import sub
+from re import sub, DOTALL
 
 
 class CellSelectorModel:
@@ -27,19 +27,15 @@ class CellSelectorModel:
     @staticmethod
     def __validate_tex(tex_content):
         tex_lines = tex_content.split("\n")
-        tex_lines = CellSelectorModel.__add_russian_letters(tex_lines)
+        tex_lines = CellSelectorModel.__add_required_libraries(tex_lines)
         tex_lines = CellSelectorModel.__comment_title(tex_lines)
         tex_lines = CellSelectorModel.__add_star_to_sections(tex_lines)
         tex_lines = CellSelectorModel.__remove_labels(tex_lines)
+        tex_lines = CellSelectorModel.__handle_long_math_formulas(tex_lines)
         return "\n".join(tex_lines)
 
     @staticmethod
     def __add_star_to_sections(tex_lines):
-        """
-        Сделать опциональным.
-        :param tex_lines: list of lines with text format
-        :return: tex lines with added stars
-        """
         # Добавляем * к \section, \subsection, \subsubsection для отмены нумерации заголовков h1, h2, h3.
         tex_lines = [
             line if not any(
@@ -61,12 +57,14 @@ class CellSelectorModel:
         return tex_lines
 
     @staticmethod
-    def __add_russian_letters(tex_lines):
-        # Заголовки для поддержки русского языка.
+    def __add_required_libraries(tex_lines):
         header_insert = (
+            # Заголовки для поддержки русского языка.
             "\\usepackage[T2A]{fontenc}\n"
             "\\usepackage[utf8]{inputenc} % Для поддержки Unicode (UTF-8)\n"
             "\\usepackage[russian]{babel} % Подключение русского языка\n"
+            # Поддержка валидного отображения длинных математических формул.
+            "\\usepackage{breqn}\n"
         )
 
         if tex_lines and tex_lines[0].startswith("\\documentclass"):
@@ -82,3 +80,26 @@ class CellSelectorModel:
             for line in tex_lines
         ]
         return tex_lines
+
+    @staticmethod
+    def __handle_long_math_formulas(tex_lines):
+        """
+        Ищет блоки формул, оформленные как $\displaystyle ...$, и если их содержимое превышает заданный порог,
+        заменяет их на окружение display math (например, dmath* из пакета breqn), которое обеспечивает
+        автоматический перенос строк.
+        """
+        threshold = 200  # Пороговое значение длины математической формулы.
+        tex_str = "\n".join(tex_lines)
+
+        def replace_inline_math(match):
+            content = match.group(1).strip()
+            if len(content) > threshold:
+                # Меняем на окружение dmath* для автоматического переноса длинных формул.
+                return "\\begin{dmath*}\n" + content + "\n\\end{dmath*}"
+            else:
+                # Оставляем как есть.
+                return match.group(0)
+
+        # Ищем конструкции вида $\displaystyle ...$.
+        tex_str = sub(r'\$\\displaystyle\s*(.*?)\$', replace_inline_math, tex_str, flags=DOTALL)
+        return tex_str.split("\n")
