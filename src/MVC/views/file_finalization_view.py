@@ -25,5 +25,5 @@ class FileFinalizationView(tk.Frame):
         preview.config(state=tk.DISABLED)
         preview.pack(expand=True, fill="both", padx=10, pady=10)
 
-        tk.Button(self, text="Скачать файл", command=self.controller.finalize_file).pack(pady=10)
+        tk.Button(self, text="Сохранить файл", command=self.controller.finalize_file).pack(pady=10)
         tk.Button(self, text="Назад", command=self.controller.back).pack(pady=10)

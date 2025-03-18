@@ -13,7 +13,7 @@ class FileFinalizationController:
             include_toc=self.view.is_table_of_contents_included.get(),
             include_headers_numeration=self.view.is_headers_numeration_included.get()
         )                           # Доработка файла с учётом пожеланий пользователя.
-        self.model.download_file()  # Скачивание готового файла.
+        self.model.save_file()  # Сохранение готового файла.
         self.app.show_main_menu()
 
     def back(self):

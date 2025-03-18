@@ -19,8 +19,8 @@ class FileFinalizationModel:
         if include_toc and not include_headers_numeration:
             self.__add_not_numbered_headers_to_toc()
 
-    def download_file(self):
-        """Скачивает доработанный tex-файл."""
+    def save_file(self):
+        """Сохраняет доработанный tex-файл."""
         if self.final_tex_content is None:
             return
 
