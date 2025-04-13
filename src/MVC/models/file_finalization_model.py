@@ -1,5 +1,8 @@
 from tkinter import filedialog
 
+from src.utils.formulab_exceptions import FileNotSelectedException
+
+
 class FileFinalizationModel:
     def __init__(self, intermediate_tex_content):
         self.intermediate_tex_content = intermediate_tex_content
@@ -22,11 +25,14 @@ class FileFinalizationModel:
     def save_file(self):
         """Сохраняет доработанный tex-файл."""
         if self.final_tex_content is None:
-            return
+            raise ValueError("Нет содержимого для сохранения.")
 
         file_path = filedialog.asksaveasfilename(defaultextension=".tex", filetypes=[("LaTeX files", "*.tex")])
-        if file_path:
-            with open(file_path, "w", encoding="utf-8") as f:
+
+        if not file_path:
+            raise FileNotSelectedException()
+
+        with open(file_path, "w", encoding="utf-8") as f:
                 f.write(self.final_tex_content)
 
     def __add_table_of_contents(self):
