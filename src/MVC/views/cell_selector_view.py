@@ -41,16 +41,21 @@ class CellSelectorView(tk.Frame):
             cell_frame = tk.Frame(scrollable_frame)
             cell_frame.pack(fill=tk.X, pady=5)
 
+            # Создаем фрейм для текстового поля и его прокручиваемого ползунка.
+            text_frame = tk.Frame(cell_frame)
+            text_frame.pack(fill=tk.X)
+
             # Создаем readonly поле для каждой ячейки.
-            text_widget = tk.Text(cell_frame, height=5, width=80, wrap=tk.WORD, bg="white", fg="black",
-                                  font=("Arial", 10))
+            text_widget = tk.Text(text_frame, height=5, width=80, wrap=tk.WORD,
+                                  bg="white", fg="black", font=("Arial", 10))
             text_widget.insert(tk.END, f"{i + 1}: [{cell_type}] {content}")
             text_widget.config(state=tk.DISABLED)  # Сделать поле read-only.
-            text_widget.pack(fill=tk.X)
+            text_widget.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-            # Применяем подсветку синтаксиса для кода.
-            if cell_type == 'code':
-                self.highlight_code(text_widget, content)
+            # Прокручиваемый ползунок для текстового поля.
+            scrollbar_inner = tk.Scrollbar(text_frame, orient="vertical", command=text_widget.yview)
+            scrollbar_inner.pack(side=tk.RIGHT, fill=tk.Y)
+            text_widget.config(yscrollcommand=scrollbar_inner.set)
 
             # Добавляем чекбокс.
             tk.Checkbutton(cell_frame, text=f"Выбрать {i + 1}", variable=var).pack(anchor="w", pady=2)
