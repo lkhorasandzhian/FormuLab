@@ -39,6 +39,12 @@ class MainMenuModel:
             raise Exception("Нет файлов .ipynb в выбранной папке.")
 
         self.notebook_data = self.__combine_notebooks(all_notebook_data)
+
+        # Проверка на наличие ячеек в загруженном файле.
+        if not self.notebook_data.get('cells'):
+            raise EmptyIpynbFileException(message="Папка содержит только пустые ipynb-файлы. В них нет ни одной ячейки. "
+                                                  "Выберите папку, содержащую хотя бы один непустой ipynb-файл")
+
         self.file_path = folder_path
 
     @staticmethod

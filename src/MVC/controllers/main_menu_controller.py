@@ -1,4 +1,3 @@
-import os
 from tkinter import filedialog, messagebox
 
 from src.MVC.models.main_menu_model import MainMenuModel
@@ -37,5 +36,7 @@ class MainMenuController:
             try:
                 self.model.load_notebooks_from_folder(folder_path)
                 self.app.show_cell_selector()
+            except EmptyIpynbFileException as e:
+                messagebox.showerror("Ошибка", str(e))
             except Exception as e:
                 messagebox.showerror("Ошибка", str(e))
