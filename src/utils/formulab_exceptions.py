@@ -13,3 +13,10 @@ class FileNotSelectedException(Exception):
 
     def __str__(self):
         return f"{self.message} - {self.dialog}"
+
+class EmptyIpynbFileException(Exception):
+    """Исключение, выбрасываемое, когда загружается пустой Jupyter Notebook без ячеек."""
+
+    def __init__(self, message="Файл пустой. В нем нет ни одной ячейки. Выберите файл, содержащий хотя бы одну ячейку"):
+        self.message = message
+        super().__init__(self.message)

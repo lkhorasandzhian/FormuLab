@@ -1,6 +1,8 @@
 import nbformat
 import os
 
+from src.utils.formulab_exceptions import EmptyIpynbFileException
+
 
 class MainMenuModel:
     def __init__(self):
@@ -11,9 +13,14 @@ class MainMenuModel:
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 self.notebook_data = nbformat.read(f, as_version=4)
-            self.file_path = file_path
         except Exception as e:
             raise Exception(f"Ошибка загрузки файла: {e}")
+
+        # Проверка на наличие ячеек в загруженном файле.
+        if not self.notebook_data.get('cells'):
+            raise EmptyIpynbFileException()
+
+        self.file_path = file_path
 
     def load_notebooks_from_folder(self, folder_path):
         """Загружает все .ipynb файлы из папки и объединяет их в один notebook."""
