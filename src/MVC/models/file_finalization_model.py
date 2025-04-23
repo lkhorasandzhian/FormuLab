@@ -1,11 +1,13 @@
+import os
 from tkinter import filedialog
 
 from src.utils.formulab_exceptions import FileNotSelectedException
 
 
 class FileFinalizationModel:
-    def __init__(self, intermediate_tex_content):
+    def __init__(self, intermediate_tex_content, ipynb_images):
         self.intermediate_tex_content = intermediate_tex_content
+        self.ipynb_images = ipynb_images
         self.final_tex_content = None
 
     def refine_file(self, include_toc=False, include_headers_numeration=False):
@@ -32,8 +34,28 @@ class FileFinalizationModel:
         if not file_path:
             raise FileNotSelectedException()
 
+        # Определение папки для картинок рядом с tex-файлом.
+        base, _ = os.path.splitext(os.path.basename(file_path))
+        folder_name = f"{base}_FormuLab_images"
+        img_folder = os.path.join(os.path.dirname(file_path), folder_name)
+
+        # Сохранение изображений в отдельной папке, если они есть.
+        if self.ipynb_images:
+            self.save_images(img_folder)
+
         with open(file_path, "w", encoding="utf-8") as f:
                 f.write(self.final_tex_content)
+
+    def save_images(self, output_dir):
+        """
+        Сохраняет все извлеченные картинки в указанную папку.
+        """
+        if not self.ipynb_images:
+            return
+        os.makedirs(output_dir, exist_ok=True)
+        for filename, data in self.ipynb_images.items():
+            with open(os.path.join(output_dir, filename), 'wb') as f:
+                f.write(data)
 
     def __add_table_of_contents(self):
         """Добавляет оглавление в tex-файл."""

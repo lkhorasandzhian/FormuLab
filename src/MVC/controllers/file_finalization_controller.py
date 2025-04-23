@@ -6,9 +6,9 @@ from src.utils.formulab_exceptions import FileNotSelectedException
 
 
 class FileFinalizationController:
-    def __init__(self, app, intermediate_tex_content):
+    def __init__(self, app, intermediate_tex_content, ipynb_images):
         self.app = app
-        self.model = FileFinalizationModel(intermediate_tex_content)
+        self.model = FileFinalizationModel(intermediate_tex_content, ipynb_images)
         self.view = FileFinalizationView(self, intermediate_tex_content)
 
     def finalize_file(self):

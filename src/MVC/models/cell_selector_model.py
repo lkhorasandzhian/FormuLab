@@ -1,12 +1,16 @@
+import base64
 import nbformat
 from nbconvert import LatexExporter
 from re import sub, DOTALL
+
+from traitlets.config import Config
 
 
 class CellSelectorModel:
     def __init__(self, notebook_data):
         self.notebook_data = notebook_data
         self.tex_content = None
+        self.ipynb_images = {}
 
     def get_cells(self):
         return self.notebook_data['cells'] if self.notebook_data else []
@@ -16,13 +20,44 @@ class CellSelectorModel:
         temp_notebook = nbformat.v4.new_notebook()
         temp_notebook.cells = selected_cells
 
-        latex_exporter = LatexExporter()
+        self.__extract_images(selected_cells)
+
+        c = Config()
+        c.ExtractOutputPreprocessor.output_filename_template = "image_{index}{extension}"
+
+        latex_exporter = LatexExporter(config=c)
         try:
             tex_content, _ = latex_exporter.from_notebook_node(temp_notebook)
             tex_content = CellSelectorModel.__validate_tex(tex_content)
             self.tex_content = tex_content
         except Exception as e:
             raise Exception(f"Ошибка экспорта в LaTeX: {e}")
+
+    def __extract_images(self, cells):
+        """
+        Проходит по всем output- и attachment-данным ячеек,
+        извлекает картинки и сохраняет их в self.ipynb_images.
+        """
+        counter = 1
+        for cell in cells:
+            # Из выходных данных ячеек.
+            for output in cell.get('outputs', []):
+                for mime, content in output.get('data', {}).items():
+                    if mime.startswith('image/'):
+                        ext = mime.split('/')[1]
+                        img_data = base64.b64decode(content)
+                        name = f'image_{counter}.{ext}'
+                        self.ipynb_images[name] = img_data
+                        counter += 1
+            # Из attachment в markdown.
+            for attachment in cell.get('attachments', {}).values():
+                for mime, content in attachment.items():
+                    if mime.startswith('image/'):
+                        ext = mime.split('/')[1]
+                        img_data = base64.b64decode(content)
+                        name = f'attach_{counter}.{ext}'
+                        self.ipynb_images[name] = img_data
+                        counter += 1
 
     @staticmethod
     def __validate_tex(tex_content):

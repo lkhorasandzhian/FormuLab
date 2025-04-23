@@ -42,7 +42,8 @@ class FormuLabApplication:
 
         # Создаем контроллер для доработки полученного файла tex.
         tex_content = self.current_controller.model.tex_content
-        self.current_controller = FileFinalizationController(self, tex_content)
+        ipynb_images = self.current_controller.model.ipynb_images
+        self.current_controller = FileFinalizationController(self, tex_content, ipynb_images)
         self.current_controller.view.pack()
 
     def launch(self):
