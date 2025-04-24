@@ -1,4 +1,5 @@
 import os
+import re
 from tkinter import filedialog
 
 from src.utils.formulab_exceptions import FileNotSelectedException
@@ -42,6 +43,8 @@ class FileFinalizationModel:
         # Сохранение изображений в отдельной папке, если они есть.
         if self.ipynb_images:
             self.save_images(img_folder)
+            # Обновляем пути в tex-контенте, добавляя папку перед названием файла.
+            self.__add_image_folder_info(folder_name)
 
         with open(file_path, "w", encoding="utf-8") as f:
                 f.write(self.final_tex_content)
@@ -56,6 +59,19 @@ class FileFinalizationModel:
         for filename, data in self.ipynb_images.items():
             with open(os.path.join(output_dir, filename), 'wb') as f:
                 f.write(data)
+
+    def __add_image_folder_info(self, folder_name):
+        """
+        Добавляет префикс папки к путям изображений в tex-контенте.
+        Пример:
+          \adjustimage{...}{image_1.png} ->
+          \adjustimage{...}{folder_name/image_1.png}
+        """
+        # Regex учитывает вложенные фигурные скобки в первой группе.
+        pattern = r'(\\adjustimage\{(?:[^{}]|\{[^{}]*\})*\})\{([^}]+)\}'
+        # Замена на \1{folder_name/\2}.
+        replacement = r"\1{" + folder_name + r"/\2}"
+        self.final_tex_content = re.sub(pattern, replacement, self.final_tex_content)
 
     def __add_table_of_contents(self):
         """Добавляет оглавление в tex-файл."""
