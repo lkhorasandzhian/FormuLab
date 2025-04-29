@@ -176,3 +176,6 @@ uncaptured_workspace
 # Make an exception for logs folder and its log files
 !logs/
 !logs/*.log
+
+# Add pandoc folder
+pandoc-full/

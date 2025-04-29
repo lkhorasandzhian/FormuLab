@@ -2,7 +2,7 @@
 set -e
 
 # Скрипт сборки и переименования для проекта FormuLab.
-# Запускается из корня проекта (где находится папка src и .venv).
+# Запускается из корня проекта (где лежат src/, .venv/ и pandoc-full/).
 
 # Очистка предыдущих сборок.
 rm -rf build dist
@@ -10,17 +10,21 @@ rm -rf build dist
 # Создание каталога для логов.
 mkdir -p logs
 
-# Использование Python из виртуального окружения напрямую.
 echo "Запуск PyInstaller..."
-"${PWD}/.venv/Scripts/python" -m PyInstaller --onefile --paths="${PWD}" src/main.py > logs/pyinstaller_build.log 2>&1
-echo "Лог сборки сохранен в logs/pyinstaller_build.log"
+pyinstaller \
+  --onefile \
+  --windowed \
+  --name FormuLab \
+  --noupx \
+  --collect-all nbconvert \
+  --collect-all jupyter_core \
+  --collect-all jupyter_client \
+  --add-data ".venv\\share\\jupyter;share/jupyter" \
+  --add-data "pandoc-full;pandoc-full"           \
+  --add-binary "pandoc-full/pandoc.exe;."        \
+  src/main.py                                    \
+  > logs/pyinstaller_build.log 2>&1
 
-# Переименовывание исполняемого файла.
-echo "Переименование исполняемого файла main.exe в FormuLab.exe..."
-if [ -f "dist/main.exe" ]; then
-  mv "dist/main.exe" "dist/FormuLab.exe"
-  echo "Готово: dist/FormuLab.exe"
-else
-  echo "Ошибка: dist/main.exe не найден. Необходимо проверить сборку." >&2
-  exit 1
-fi
+echo "Лог сборки сохранён в logs/pyinstaller_build.log"
+
+echo "Готово: dist/FormuLab.exe"

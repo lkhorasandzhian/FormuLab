@@ -2,10 +2,9 @@ Levon@DESKTOP-ASG02FD MINGW64 ~/source/repos/FormuLab (main)
 $ chmod +x pyinstaller_build.sh
 
 Levon@DESKTOP-ASG02FD MINGW64 ~/source/repos/FormuLab (main)
-$ ./pyinstaller_build.sh
+$ bash pyinstaller_build.sh
 Запуск PyInstaller...
-Лог сборки сохранен в logs/pyinstaller_build.log
-Переименование исполняемого файла main.exe в FormuLab.exe...
+Лог сборки сохранён в logs/pyinstaller_build.log
 Готово: dist/FormuLab.exe
 
 Levon@DESKTOP-ASG02FD MINGW64 ~/source/repos/FormuLab (main)
