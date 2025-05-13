@@ -1,10 +1,10 @@
-109 INFO: PyInstaller: 6.12.0, contrib hooks: 2025.1
-109 INFO: Python: 3.11.9
-117 INFO: Platform: Windows-10-10.0.26100-SP0
-117 INFO: Python environment: C:\Users\Levon\source\repos\FormuLab\.venv
-117 INFO: wrote C:\Users\Levon\source\repos\FormuLab\FormuLab.spec
-117 INFO: Removing temporary files and cleaning cache in C:\Users\Levon\AppData\Local\pyinstaller
-1383 INFO: Module search paths (PYTHONPATH):
+101 INFO: PyInstaller: 6.12.0, contrib hooks: 2025.1
+101 INFO: Python: 3.11.9
+106 INFO: Platform: Windows-10-10.0.26100-SP0
+106 INFO: Python environment: C:\Users\Levon\source\repos\FormuLab\.venv
+110 INFO: wrote C:\Users\Levon\source\repos\FormuLab\FormuLab.spec
+112 INFO: Removing temporary files and cleaning cache in C:\Users\Levon\AppData\Local\pyinstaller
+1360 INFO: Module search paths (PYTHONPATH):
 ['C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Scripts\\pyinstaller.exe',
  'C:\\Program '
  'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\python311.zip',
@@ -20,103 +20,103 @@
  'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\win32\\lib',
  'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\Pythonwin',
  'C:\\Users\\Levon\\source\\repos\\FormuLab']
-1623 INFO: Appending 'datas' from .spec
-1633 INFO: checking Analysis
-1633 INFO: Building Analysis because Analysis-00.toc is non existent
-1633 INFO: Running Analysis Analysis-00.toc
-1633 INFO: Target bytecode optimization level: 0
-1633 INFO: Initializing module dependency graph...
-1633 INFO: Initializing module graph hook caches...
-1643 INFO: Analyzing modules for base_library.zip ...
-2439 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-2486 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-3529 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-4289 INFO: Caching module dependency graph...
-4322 INFO: Looking for Python shared library...
-4322 INFO: Using Python shared library: C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\python311.dll
-4322 INFO: Analyzing C:\Users\Levon\source\repos\FormuLab\src\main.py
-4322 INFO: Processing pre-find-module-path hook 'hook-tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
-4322 INFO: TclTkInfo: initializing cached Tcl/Tk info...
-4526 INFO: Processing standard module hook 'hook-_tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-4526 INFO: Processing standard module hook 'hook-nbformat.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-4618 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
-4618 INFO: SetuptoolsInfo: initializing cached setuptools info...
-5306 INFO: Processing standard module hook 'hook-difflib.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-5373 INFO: Processing standard module hook 'hook-platform.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-5530 INFO: Processing standard module hook 'hook-jsonschema.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-5833 INFO: Processing standard module hook 'hook-jsonschema_specifications.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-5849 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
-6066 INFO: Processing standard module hook 'hook-charset_normalizer.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-6135 INFO: Processing standard module hook 'hook-certifi.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-6239 INFO: Processing standard module hook 'hook-nbconvert.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-6327 INFO: Processing standard module hook 'hook-pygments.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-7354 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
-7358 INFO: Processing standard module hook 'hook-packaging.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-7568 INFO: Processing standard module hook 'hook-xml.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-7570 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-7757 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-8109 INFO: Processing standard module hook 'hook-sysconfig.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-8237 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-8589 INFO: Processing standard module hook 'hook-zmq.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-9401 INFO: Processing pre-safe-import-module hook 'hook-six.moves.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
-9617 INFO: Processing pre-safe-import-module hook 'hook-platformdirs.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
-9632 INFO: Processing standard module hook 'hook-platformdirs.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-9717 INFO: Processing pre-safe-import-module hook 'hook-importlib_metadata.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
-9797 INFO: Processing standard module hook 'hook-tinycss2.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-9816 INFO: Processing standard module hook 'hook-mistune.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-10418 INFO: Processing standard module hook 'hook-jinja2.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-10690 INFO: Analyzing hidden import 'nbconvert.__main__'
-10714 INFO: Analyzing hidden import 'nbconvert.conftest'
-10714 INFO: Analyzing hidden import 'nbconvert.resources'
-10722 INFO: Analyzing hidden import 'nbconvert.utils.lexers'
-10722 INFO: Analyzing hidden import 'jupyter_core.__main__'
-10722 INFO: Analyzing hidden import 'jupyter_core.troubleshoot'
-10730 INFO: Analyzing hidden import 'jupyter_client.consoleapp'
-10738 INFO: Analyzing hidden import 'jupyter_client.ioloop'
-10738 INFO: Analyzing hidden import 'jupyter_client.kernelapp'
-10738 INFO: Analyzing hidden import 'jupyter_client.kernelspecapp'
-10738 INFO: Analyzing hidden import 'jupyter_client.runapp'
-10738 INFO: Analyzing hidden import 'jupyter_client.threaded'
-10754 INFO: Processing module hooks (post-graph stage)...
-10770 INFO: Processing standard module hook 'hook-tinycss2.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
-10854 INFO: Processing standard module hook 'hook-pkg_resources.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-12920 INFO: Processing standard module hook 'hook-_tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
-12939 INFO: Performing binary vs. data reclassification (1163 entries)
-13000 INFO: Looking for ctypes DLLs
-13033 INFO: Analyzing run-time hooks ...
-13033 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
-13047 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
-13047 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
-13047 INFO: Including run-time hook 'pyi_rth_traitlets.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks'
-13047 INFO: Including run-time hook 'pyi_rth_pkgres.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
-13047 INFO: Including run-time hook 'pyi_rth__tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
-13079 INFO: Creating base_library.zip...
-13127 INFO: Looking for dynamic libraries
-13844 INFO: Extra DLL search directories (AddDllDirectory): []
-13844 INFO: Extra DLL search directories (PATH): []
-14180 INFO: Warnings written to C:\Users\Levon\source\repos\FormuLab\build\FormuLab\warn-FormuLab.txt
-14244 INFO: Graph cross-reference written to C:\Users\Levon\source\repos\FormuLab\build\FormuLab\xref-FormuLab.html
-14296 INFO: checking PYZ
-14296 INFO: Building PYZ because PYZ-00.toc is non existent
-14296 INFO: Building PYZ (ZlibArchive) C:\Users\Levon\source\repos\FormuLab\build\FormuLab\PYZ-00.pyz
-15235 INFO: Building PYZ (ZlibArchive) C:\Users\Levon\source\repos\FormuLab\build\FormuLab\PYZ-00.pyz completed successfully.
-15240 INFO: checking PKG
-15240 INFO: Building PKG because PKG-00.toc is non existent
-15240 INFO: Building PKG (CArchive) FormuLab.pkg
-15302 INFO: Building PKG (CArchive) FormuLab.pkg completed successfully.
-15302 INFO: Bootloader C:\Users\Levon\source\repos\FormuLab\.venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
-15302 INFO: checking EXE
-15302 INFO: Building EXE because EXE-00.toc is non existent
-15302 INFO: Building EXE from EXE-00.toc
-15302 INFO: Copying bootloader EXE to C:\Users\Levon\source\repos\FormuLab\build\FormuLab\FormuLab.exe
-15423 INFO: Copying icon to EXE
-15494 INFO: Copying 0 resources to EXE
-15494 INFO: Embedding manifest in EXE
-15574 INFO: Appending PKG archive to EXE
-15735 INFO: Fixing EXE headers
-18695 INFO: Building EXE from EXE-00.toc completed successfully.
-18711 INFO: checking COLLECT
-18711 INFO: Building COLLECT because COLLECT-00.toc is non existent
-18711 INFO: Building COLLECT COLLECT-00.toc
-20163 INFO: Building COLLECT COLLECT-00.toc completed successfully.
-20180 INFO: Build complete! The results are available in: C:\Users\Levon\source\repos\FormuLab\dist
+1585 INFO: Appending 'datas' from .spec
+1599 INFO: checking Analysis
+1599 INFO: Building Analysis because Analysis-00.toc is non existent
+1599 INFO: Running Analysis Analysis-00.toc
+1599 INFO: Target bytecode optimization level: 0
+1599 INFO: Initializing module dependency graph...
+1599 INFO: Initializing module graph hook caches...
+1599 INFO: Analyzing modules for base_library.zip ...
+2404 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+2455 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3512 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+4271 INFO: Caching module dependency graph...
+4288 INFO: Looking for Python shared library...
+4303 INFO: Using Python shared library: C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\python311.dll
+4303 INFO: Analyzing C:\Users\Levon\source\repos\FormuLab\src\main.py
+4303 INFO: Processing pre-find-module-path hook 'hook-tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
+4303 INFO: TclTkInfo: initializing cached Tcl/Tk info...
+4494 INFO: Processing standard module hook 'hook-_tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+4494 INFO: Processing standard module hook 'hook-nbformat.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+4596 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+4596 INFO: SetuptoolsInfo: initializing cached setuptools info...
+5268 INFO: Processing standard module hook 'hook-difflib.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+5350 INFO: Processing standard module hook 'hook-platform.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+5500 INFO: Processing standard module hook 'hook-jsonschema.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+5805 INFO: Processing standard module hook 'hook-jsonschema_specifications.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+5821 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6027 INFO: Processing standard module hook 'hook-charset_normalizer.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+6106 INFO: Processing standard module hook 'hook-certifi.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+6201 INFO: Processing standard module hook 'hook-nbconvert.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+6296 INFO: Processing standard module hook 'hook-pygments.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7341 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+7347 INFO: Processing standard module hook 'hook-packaging.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7547 INFO: Processing standard module hook 'hook-xml.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7563 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7737 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+8093 INFO: Processing standard module hook 'hook-sysconfig.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+8232 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+8594 INFO: Processing standard module hook 'hook-zmq.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+9378 INFO: Processing pre-safe-import-module hook 'hook-six.moves.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+9596 INFO: Processing pre-safe-import-module hook 'hook-platformdirs.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+9601 INFO: Processing standard module hook 'hook-platformdirs.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+9697 INFO: Processing pre-safe-import-module hook 'hook-importlib_metadata.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+9761 INFO: Processing standard module hook 'hook-tinycss2.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+9804 INFO: Processing standard module hook 'hook-mistune.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+10431 INFO: Processing standard module hook 'hook-jinja2.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+10715 INFO: Analyzing hidden import 'nbconvert.__main__'
+10739 INFO: Analyzing hidden import 'nbconvert.conftest'
+10741 INFO: Analyzing hidden import 'nbconvert.resources'
+10741 INFO: Analyzing hidden import 'nbconvert.utils.lexers'
+10741 INFO: Analyzing hidden import 'jupyter_core.__main__'
+10747 INFO: Analyzing hidden import 'jupyter_core.troubleshoot'
+10747 INFO: Analyzing hidden import 'jupyter_client.consoleapp'
+10747 INFO: Analyzing hidden import 'jupyter_client.ioloop'
+10763 INFO: Analyzing hidden import 'jupyter_client.kernelapp'
+10764 INFO: Analyzing hidden import 'jupyter_client.kernelspecapp'
+10764 INFO: Analyzing hidden import 'jupyter_client.runapp'
+10764 INFO: Analyzing hidden import 'jupyter_client.threaded'
+10779 INFO: Processing module hooks (post-graph stage)...
+10798 INFO: Processing standard module hook 'hook-tinycss2.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+10859 INFO: Processing standard module hook 'hook-pkg_resources.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+12945 INFO: Processing standard module hook 'hook-_tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+12945 INFO: Performing binary vs. data reclassification (1163 entries)
+13023 INFO: Looking for ctypes DLLs
+13055 INFO: Analyzing run-time hooks ...
+13055 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+13055 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+13055 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+13071 INFO: Including run-time hook 'pyi_rth_traitlets.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks'
+13071 INFO: Including run-time hook 'pyi_rth_pkgres.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+13071 INFO: Including run-time hook 'pyi_rth__tkinter.py' from 'C:\\Users\\Levon\\source\\repos\\FormuLab\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+13104 INFO: Creating base_library.zip...
+13151 INFO: Looking for dynamic libraries
+13880 INFO: Extra DLL search directories (AddDllDirectory): []
+13880 INFO: Extra DLL search directories (PATH): []
+14217 INFO: Warnings written to C:\Users\Levon\source\repos\FormuLab\build\FormuLab\warn-FormuLab.txt
+14280 INFO: Graph cross-reference written to C:\Users\Levon\source\repos\FormuLab\build\FormuLab\xref-FormuLab.html
+14331 INFO: checking PYZ
+14331 INFO: Building PYZ because PYZ-00.toc is non existent
+14331 INFO: Building PYZ (ZlibArchive) C:\Users\Levon\source\repos\FormuLab\build\FormuLab\PYZ-00.pyz
+15257 INFO: Building PYZ (ZlibArchive) C:\Users\Levon\source\repos\FormuLab\build\FormuLab\PYZ-00.pyz completed successfully.
+15273 INFO: checking PKG
+15273 INFO: Building PKG because PKG-00.toc is non existent
+15273 INFO: Building PKG (CArchive) FormuLab.pkg
+15330 INFO: Building PKG (CArchive) FormuLab.pkg completed successfully.
+15330 INFO: Bootloader C:\Users\Levon\source\repos\FormuLab\.venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+15330 INFO: checking EXE
+15330 INFO: Building EXE because EXE-00.toc is non existent
+15330 INFO: Building EXE from EXE-00.toc
+15330 INFO: Copying bootloader EXE to C:\Users\Levon\source\repos\FormuLab\build\FormuLab\FormuLab.exe
+15429 INFO: Copying icon to EXE
+15502 INFO: Copying 0 resources to EXE
+15502 INFO: Embedding manifest in EXE
+15579 INFO: Appending PKG archive to EXE
+15730 INFO: Fixing EXE headers
+22579 INFO: Building EXE from EXE-00.toc completed successfully.
+22581 INFO: checking COLLECT
+22581 INFO: Building COLLECT because COLLECT-00.toc is non existent
+22581 INFO: Building COLLECT COLLECT-00.toc
+24507 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+24526 INFO: Build complete! The results are available in: C:\Users\Levon\source\repos\FormuLab\dist
