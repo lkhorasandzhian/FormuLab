@@ -10,19 +10,23 @@ rm -rf build dist
 # Создание каталога для логов.
 mkdir -p logs
 
+ICON_PATH="assets/logo.ico"
+
 echo "Запуск PyInstaller..."
 pyinstaller \
-  --onefile \
+  --clean \
   --windowed \
   --name FormuLab \
+  --icon "$ICON_PATH" \
   --noupx \
   --collect-all nbconvert \
   --collect-all jupyter_core \
   --collect-all jupyter_client \
   --add-data ".venv\\share\\jupyter;share/jupyter" \
+  --add-data "$ICON_PATH;assets" \
   src/main.py                                    \
   > logs/pyinstaller_build.log 2>&1
 
 echo "Лог сборки сохранён в logs/pyinstaller_build.log"
 
-echo "Готово: dist/FormuLab.exe"
+echo "Готово: dist/FormuLab/FormuLab.exe"

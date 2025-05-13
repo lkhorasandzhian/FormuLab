@@ -5,7 +5,7 @@ Levon@DESKTOP-ASG02FD MINGW64 ~/source/repos/FormuLab (main)
 $ bash pyinstaller_build.sh
 Запуск PyInstaller...
 Лог сборки сохранён в logs/pyinstaller_build.log
-Готово: dist/FormuLab.exe
+Готово: dist/FormuLab/FormuLab.exe
 
 Levon@DESKTOP-ASG02FD MINGW64 ~/source/repos/FormuLab (main)
 $
