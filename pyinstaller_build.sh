@@ -20,8 +20,6 @@ pyinstaller \
   --collect-all jupyter_core \
   --collect-all jupyter_client \
   --add-data ".venv\\share\\jupyter;share/jupyter" \
-  --add-data "pandoc-full;pandoc-full"           \
-  --add-binary "pandoc-full/pandoc.exe;."        \
   src/main.py                                    \
   > logs/pyinstaller_build.log 2>&1
 
