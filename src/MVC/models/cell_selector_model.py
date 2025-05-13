@@ -16,7 +16,8 @@ class CellSelectorModel:
         return self.notebook_data['cells'] if self.notebook_data else []
 
     def convert_to_tex(self, selected_indices):
-        selected_cells = [self.notebook_data['cells'][i] for i in selected_indices]
+        # Нумерация в selected_indices идет с 1, а в notebook_data с 0.
+        selected_cells = [self.notebook_data['cells'][i - 1] for i in selected_indices]
         temp_notebook = nbformat.v4.new_notebook()
         temp_notebook.cells = selected_cells
 
