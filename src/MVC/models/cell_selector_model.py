@@ -100,7 +100,13 @@ class CellSelectorModel:
             "\\usepackage[utf8]{inputenc} % Для поддержки Unicode (UTF-8)\n"
             "\\usepackage[russian]{babel} % Подключение русского языка\n"
             # Поддержка валидного отображения длинных математических формул.
+            "% Поддержка валидного отображения длинных математических формул\n"
             "\\usepackage{breqn}\n"
+            # Обёртка Pandoc – ограничивает размер картинки размерами текста и страницы.
+            "% Обёртка Pandoc – ограничивает размер картинки размерами текста и страницы\n"
+            "\\newcommand{\\pandocbounded}[1]{\n"
+            "    \\adjustbox{max size={\\linewidth}{\\paperheight}}{#1}\n"
+            "}\n"
         )
 
         if tex_lines and tex_lines[0].startswith("\\documentclass"):
