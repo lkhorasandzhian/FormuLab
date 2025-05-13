@@ -42,36 +42,89 @@ class FileFinalizationModel:
 
         # Сохранение изображений в отдельной папке, если они есть.
         if self.ipynb_images:
-            self.save_images(img_folder)
-            # Обновляем пути в tex-контенте, добавляя папку перед названием файла.
+            # Шаг 1: сохранение изображений на ПК в отдельной папке.
+            self.__save_images(img_folder)
+
+            # Шаг 2: переименовывание файлов в latex-коде.
+            self.__rename_files_in_latex_code()
+
+            # Шаг 3: обновление путей в tex-контенте, добавляя папку перед названием файла.
             self.__add_image_folder_info(folder_name)
 
         with open(file_path, "w", encoding="utf-8") as f:
                 f.write(self.final_tex_content)
 
-    def save_images(self, output_dir):
+    def __save_images(self, output_dir):
         """
         Сохраняет все извлеченные картинки в указанную папку.
         """
         if not self.ipynb_images:
             return
         os.makedirs(output_dir, exist_ok=True)
+        i = 0
         for filename, data in self.ipynb_images.items():
-            with open(os.path.join(output_dir, filename), 'wb') as f:
+            i += 1
+            with open(os.path.join(output_dir, f'image_{i}.png'), 'wb') as f:
                 f.write(data)
 
+    def __rename_files_in_latex_code(self):
+        r"""
+        Переименовывает файлы в latex-коде.
+
+        Случай 1:
+          \\adjustimage{...}{old.png} ->
+
+          \\adjustimage{...}{image_1.png}
+        Случай 2:
+          \\pandocbounded{\\includegraphics[...] {old.png}} ->
+
+          \\pandocbounded{\\includegraphics[...] {image_1.png}}
+        """
+        # Случай 1: переименование adjustimage.
+        adjust_counter = 0
+        def repl_adjust(match):
+            nonlocal adjust_counter
+            adjust_counter += 1
+            orig = match.group(2)
+            _, ext = os.path.splitext(orig)
+            return match.group(1) + "{" + f"image_{adjust_counter}{ext}" + "}"
+        pattern_adjust = r'(\\adjustimage\{(?:[^{}]|\{[^{}]*\})*\})\{([^}]+)\}'
+        self.final_tex_content = re.sub(pattern_adjust, repl_adjust, self.final_tex_content)
+
+        # Случай 2: переименование pandocbounded с includegraphics.
+        pandoc_counter = 0
+        def repl_pandoc(match):
+            nonlocal pandoc_counter
+            pandoc_counter += 1
+            orig = match.group(2)
+            _, ext = os.path.splitext(orig)
+            return match.group(1) + f"image_{pandoc_counter}{ext}" + "}"
+        pattern_pandoc = r'(\\pandocbounded\{\\includegraphics\[[^\]]*\]\{)([^}]+)\}'
+        self.final_tex_content = re.sub(pattern_pandoc, repl_pandoc, self.final_tex_content)
+
     def __add_image_folder_info(self, folder_name):
-        """
+        r"""
         Добавляет префикс папки к путям изображений в tex-контенте.
-        Пример:
-          \adjustimage{...}{image_1.png} ->
-          \adjustimage{...}{folder_name/image_1.png}
+
+        Случай 1:
+          \\adjustimage{...}{image_1.png} ->
+
+          \\adjustimage{...}{folder_name/image_1.png}
+        Случай 2:
+          \\pandocbounded{\\includegraphics[...]{image_1.png}} ->
+
+          \\pandocbounded{\\includegraphics[...]{folder_name/image_1.png}}
         """
-        # Regex учитывает вложенные фигурные скобки в первой группе.
+
+        # Случай 1: обработка adjustimage.
         pattern = r'(\\adjustimage\{(?:[^{}]|\{[^{}]*\})*\})\{([^}]+)\}'
-        # Замена на \1{folder_name/\2}.
         replacement = r"\1{" + folder_name + r"/\2}"
         self.final_tex_content = re.sub(pattern, replacement, self.final_tex_content)
+
+        # Случай 2: обработка pandocbounded + includegraphics.
+        pattern2 = r'(\\pandocbounded\{\\includegraphics\[[^\]]*\]\{)([^}]+)\}'
+        replacement2 = r"\1" + folder_name + r"/\2}"
+        self.final_tex_content = re.sub(pattern2, replacement2, self.final_tex_content)
 
     def __add_table_of_contents(self):
         """Добавляет оглавление в tex-файл."""
